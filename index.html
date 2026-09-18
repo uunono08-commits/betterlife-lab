@@ -2,49 +2,113 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>더나은생활연구소 - 회사소개서</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Better Life Lab - 회사소개서</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Apple SD 한국기계연구원', 'Noto Sans KR', sans-serif; }
-        body { background-color: #f9f9f9; color: #333; line-height: 1.6; display: flex; justify-content: center; }
-        .mobile-container { width: 100%; max-width: 480px; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); overflow-x: hidden; }
+        /* 기본 스타일 초기화 */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; -webkit-font-smoothing: antialiased; }
+        body { background-color: #f9f9f9; color: #333; line-height: 1.6; display: flex; justify-content: center; overflow-x: hidden; }
+        .mobile-container { width: 100%; max-width: 480px; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); position: relative; z-index: 1; }
         
         /* 섹션 공통 스타일 */
-        section { padding: 50px 24px; text-align: center; border-bottom: 1px solid #f0f0f0; }
-        h2 { font-size: 1.2rem; color: #888; margin-bottom: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
-        h1 { font-size: 1.8rem; color: #222; margin-bottom: 20px; font-weight: 700; }
-        p { font-size: 1rem; color: #555; margin-bottom: 15px; }
+        section { padding: 60px 24px; text-align: center; border-bottom: 1px solid #f0f0f0; position: relative; }
+        h2 { font-size: 0.9rem; color: #888; margin-bottom: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
+        h1 { font-size: 1.8rem; color: #111; margin-bottom: 20px; font-weight: 700; line-height: 1.3; }
+        p { font-size: 1rem; color: #666; margin-bottom: 16px; word-break: keep-all; }
 
-        /* 히어로 섹션 (이미지 추가) */
-        .hero { background: linear-gradient(135deg, #f6f8fa 0%, #e9edf0 100%); padding: 60px 24px 80px 24px; }
-        .hero-image-wrapper { width: 100%; max-width: 400px; margin: 0 auto 40px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .hero-image { width: 100%; height: auto; display: block; object-fit: cover; }
-        .hero h1 { font-size: 2.2rem; margin-bottom: 15px; color: #111; }
+        /* --- 변경된 오프닝 슬라이드쇼 스타일 --- */
+        .hero-slideshow {
+            height: 70vh; /* 화면 높이의 70% 차지 */
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-end; /* 텍스트를 하단에 배치 */
+            justify-content: center;
+        }
+
+        /* 배경 이미지 레이어 공통 */
+        .slide-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            z-index: 1;
+            /* 애니메이션 설정: 18초 동안 동작, 무한 반복 */
+            animation: slideShowAnimation 18s linear infinite;
+            /* 줌인 효과를 위한 초기 설정 */
+            transform: scale(1.0); 
+        }
+
+        /* 각 슬라이드별 배경 이미지 주소 설정 (여기를 수정하세요) */
+        .slide-bg:nth-child(1) { 
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop'); 
+            animation-delay: 0s; /* 첫 번째 이미지는 즉시 시작 */
+        }
+        .slide-bg:nth-child(2) { 
+            background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop'); 
+            animation-delay: 6s; /* 6초 후 시작 */
+        }
+        .slide-bg:nth-child(3) { 
+            background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop'); 
+            animation-delay: 12s; /* 12초 후 시작 */
+        }
+
+        /* 슬라이드 위 텍스트 박스 (반투명 배경) */
+        .hero-text-box {
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            width: 100%;
+            padding: 60px 24px 30px 24px;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
+        .hero-text-box h2 { color: #ddd; font-size: 0.8rem; margin-bottom: 8px; }
+        .hero-text-box h1 { color: #fff; font-size: 2.2rem; margin-bottom: 10px; }
+        .hero-text-box p { color: #eee; font-size: 1.1rem; margin-bottom: 0; font-weight: 300;}
+
+        /* 슬라이드 애니메이션 정의 (서서히 나타나고 줌인) */
+        @keyframes slideShowAnimation {
+            0% { opacity: 0; transform: scale(1.0); }     /* 시작: 투명, 기본 크기 */
+            5% { opacity: 1; }                          /* 5% 지점: 완전히 보임 */
+            33% { opacity: 1; transform: scale(1.05); }   /* 33% 지점: 보임 유지하며 살짝 줌인 */
+            38% { opacity: 0; transform: scale(1.06); }   /* 38% 지점: 서서히 사라짐 */
+            100% { opacity: 0; transform: scale(1.0); }   /* 나머지: 투명, 크기 초기화 */
+        }
+        /* --------------------------------------- */
 
         /* 히스토리/가치 카드 */
-        .card-box { background: #fdfdfd; border: 1px solid #eaeaea; border-radius: 12px; padding: 25px 20px; margin-top: 20px; text-align: left; }
-        .card-box h3 { font-size: 1.1rem; color: #222; margin-bottom: 8px; }
+        .card-box { background: #fff; border: 1px solid #eee; border-radius: 16px; padding: 30px 24px; margin-top: 24px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .card-box h3 { font-size: 1.2rem; color: #111; margin-bottom: 12px; font-weight: 600; }
         
         /* 버튼 스타일 */
-        .btn { display: block; width: 100%; padding: 14px; background: #222; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; margin-top: 20px; text-align: center; }
+        .btn { display: block; width: 100%; padding: 16px; background: #111; color: #fff; text-decoration: none; border-radius: 12px; font-weight: 600; margin-top: 30px; text-align: center; font-size: 1.1rem; transition: background 0.2s; }
         .btn:active { background: #444; }
 
         /* 푸터 */
-        footer { padding: 30px 24px; text-align: center; font-size: 0.85rem; color: #999; background: #f4f4f4; }
+        footer { padding: 40px 24px; text-align: center; font-size: 0.9rem; color: #999; background: #f4f4f4; border-top: 1px solid #eaeaea; }
     </style>
 </head>
 <body>
 
     <div class="mobile-container">
-        <!-- 1. 메인 오프닝 (이미지 포함) -->
-        <section class="hero">
-            <div class="hero-image-wrapper">
-                <!-- 아래 src 속성에 원하시는 이미지 주소(URL)를 넣어주세요. 현재는 예시 이미지 링크입니다. -->
-                <img src="https://i.imgur.com/qM7i52C.png" alt="팀 미팅 일러스트" class="hero-image">
+        <!-- 1. 변경된 오프닝 슬라이드쇼 섹션 -->
+        <section class="hero-slideshow">
+            <!-- 슬라이드 이미지 레이어 1 -->
+            <div class="slide-bg"></div>
+            <!-- 슬라이드 이미지 레이어 2 -->
+            <div class="slide-bg"></div>
+            <!-- 슬라이드 이미지 레이어 3 -->
+            <div class="slide-bg"></div>
+
+            <!-- 슬라이드 위에 겹쳐질 텍스트 -->
+            <div class="hero-text-box">
+                <h2>Introduction</h2>
+                <h1>Better Life Lab</h1>
+                <p>일상에 따뜻함과 가치를 더하는 공간,<br>우리의 이야기를 소개합니다.</p>
             </div>
-            <h2>Introduction</h2>
-            <h1>더나은생활연구소</h1>
-            <p>일상에 따뜻함과 가치를 더하는 공간,<br>우리의 이야기를 소개합니다.</p>
         </section>
 
         <!-- 2. 인사말 -->
@@ -62,7 +126,7 @@
             
             <div class="card-box">
                 <h3>01. 진정성 있는 접근</h3>
-                <p>늘 사용자 관점에서 고민하고 오래도록 신뢰할 수 있는 결과물을 만듭니다.</p>
+                <p>늘 사용자 관점에서고민하고 오래도록 신뢰할 수 있는 결과물을 만듭니다.</p>
             </div>
             
             <div class="card-box">
