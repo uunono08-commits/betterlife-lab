@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>더나은생활연구소 - 모바일 회사소개서</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; -webkit-font-smoothing: antialiased; }
+        body { background-color: #f4f6f9; color: #333; line-height: 1.5; display: flex; justify-content: center; overflow-x: hidden; }
+        
+        .mobile-container { 
+            width: 100%; 
+            max-width: 480px; 
+            background: #ffffff; 
+            min-height: 100vh; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.05); 
+            position: relative; 
+        }
+
+        /* --- 메인 시안 스타일 구현 --- */
+        .main-hero {
+            padding: 40px 24px 50px 24px;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 8px solid #f8f9fa;
+        }
+
+        /* 상단 로고 영역 */
+        .hero-top {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo-box img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+        }
+        .logo-box span {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #111;
+            letter-spacing: -0.5px;
+        }
+
+        /* 텍스트 영역 */
+        .hero-subtitle-top {
+            font-size: 0.95rem;
+            color: #555;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .hero-title {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: #111;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle-bottom {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+        .hero-subtitle-bottom .highlight {
+            color: #003366; /* ONE-STOP 컨설팅 포인트 컬러 */
+            font-weight: 800;
+        }
+
+        /* 카테고리 구분선 태그 (식약처 인허가 | 화장품 ...) */
+        .categories {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 0;
+            font-size: 0.95rem;
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 45px;
+        }
+        .categories span {
+            padding: 0 10px;
+        }
+        .categories span:first-child {
+            padding-left: 0;
+        }
+        .categories span:not(:last-child) {
+            border-right: 1px solid #ccc;
+        }
+
+        /* 하단 일러스트 및 버튼 영역 레이아웃 */
+        .hero-bottom-content {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 15px;
+            position: relative;
+        }
+
+        /* 파란 원형 배경 일러스트 */
+        .illustration-wrapper {
+            width: 62%;
+            position: relative;
+        }
+        .blue-circle-bg {
+            width: 100%;
+            aspect-ratio: 1;
+            background-color: #0000a0; /* 시안과 같은 진한 파란색 원 */
+            border-radius: 50%;
+            position: absolute;
+            bottom: -10px;
+            left: -15px;
+            z-index: 1;
+        }
+        .illustration-img {
+            width: 115%;
+            max-width: none;
+            position: relative;
+            z-index: 2;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* 노란색 버튼 그룹 */
+        .action-buttons {
+            width: 38%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 3;
+            padding-bottom: 10px;
+        }
+
+        .cta-btn {
+            display: block;
+            width: 100%;
+            padding: 14px 10px;
+            background-color: #ffcc00; /* 시안의 산뜻한 노란색 */
+            color: #111;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 24px;
+            box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
+            transition: transform 0.1s;
+        }
+        .cta-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* --- 이하 일반 섹션 스타일 (원하시는 대로 아래에 계속 추가 가능) --- */
+        section-common { padding: 40px 24px; border-bottom: 1px solid #eee; }
+        footer { padding: 30px 24px; text-align: center; font-size: 0.85rem; color: #888; background: #fafafa; }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container">
+        
+        <!-- 메인 오프닝 화면 (시안 반영 완료) -->
+        <header class="main-hero">
+            <!-- 우측 상단 로고 -->
+            <div class="hero-top">
+                <div class="logo-box">
+                    <!-- 로고 이미지 주소는 필요시 변경 가능합니다 -->
+                    <img src="https://i.imgur.com/8Q8Q8Q8.png" alt="로고" onerror="this.style.display='none'">
+                    <span>더나은생활연구소</span>
+                </div>
+            </div>
+
+            <!-- 메인 카피 텍스트 -->
+            <div class="hero-subtitle-top">식품의 안전과 기업의 성장을 함께하는</div>
+            <h1 class="hero-title">더나은생활연구소</h1>
+            <div class="hero-subtitle-bottom">
+                식약처 인허가부터 사후관리까지<br>
+                <span class="highlight">ONE-STOP 컨설팅</span>
+            </div>
+
+            <!-- 카테고리 태그 텍스트 -->
+            <div class="categories">
+                <span>식약처 인허가</span>
+                <span>화장품</span>
+                <span>HACCP</span>
+                <span>의약외품</span>
+            </div>
+
+            <!-- 일러스트 및 노란색 버튼 영역 -->
+            <div class="hero-bottom-content">
+                <div class="illustration-wrapper">
+                    <div class="blue-circle-bg"></div>
+                    <!-- 전문가 일러스트 이미지 (시안 캐릭터) -->
+                    <img src="https://i.imgur.com/qM7i52C.png" alt="전문가 팀 일러스트" class="illustration-img">
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="#portfolio" class="cta-btn">업적 보기</a>
+                    <a href="#contact" class="cta-btn">상담 신청</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- 아래부터는 기존 회사소개 내용이 이어집니다 -->
+        <section style="padding: 40px 24px; text-align: center; border-bottom: 1px solid #eee;">
+            <h2 style="font-size: 1.1rem; color: #333; margin-bottom: 10px;">회사 소개</h2>
+            <p style="font-size: 0.95rem; color: #666;">신뢰할 수 있는 파트너, 더나은생활연구소의 상세 컨설팅 내용을 확인해 보세요.</p>
+        </section>
+
+        <!-- 푸터 -->
+        <footer>
+            &copy; 2026 더나은생활연구소. All rights reserved.
+        </footer>
+
+    </div>
+
+</body>
+</html>
