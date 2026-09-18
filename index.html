@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Better Life Lab - 회사소개서</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; }
+        body { background-color: #f9f9f9; color: #333; line-height: 1.6; display: flex; justify-content: center; }
+        .mobile-container { width: 100%; max-width: 480px; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        
+        /* 섹션 공통 스타일 */
+        section { padding: 50px 24px; text-align: center; border-bottom: 1px solid #f0f0f0; }
+        h2 { font-size: 1.2rem; color: #888; margin-bottom: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
+        h1 { font-size: 1.8rem; color: #222; margin-bottom: 20px; font-weight: 700; }
+        p { font-size: 1rem; color: #555; margin-bottom: 15px; }
+
+        /* 히스토리/가치 카드 */
+        .card-box { background: #fdfdfd; border: 1px solid #eaeaea; border-radius: 12px; padding: 25px 20px; margin-top: 20px; text-align: left; }
+        .card-box h3 { font-size: 1.1rem; color: #222; margin-bottom: 8px; }
+        
+        /* 히어로 섹션 */
+        .hero { background: linear-gradient(135deg, #f6f8fa 0%, #e9edf0 100%); padding: 80px 24px; }
+        .hero h1 { font-size: 2rem; margin-bottom: 15px; color: #111; }
+
+        /* 버튼 스타일 */
+        .btn { display: block; width: 100%; padding: 14px; background: #222; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; margin-top: 20px; text-align: center; }
+        .btn:active { background: #444; }
+
+        /* 푸터 */
+        footer { padding: 30px 24px; text-align: center; font-size: 0.85rem; color: #999; background: #f4f4f4; }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container">
+        <!-- 1. 메인 오프닝 -->
+        <section class="hero">
+            <h2>Introduction</h2>
+            <h1>Better Life Lab</h1>
+            <p>일상에 따뜻함과 가치를 더하는 공간,<br>우리의 이야기를 소개합니다.</p>
+        </section>
+
+        <!-- 2. 인사말 -->
+        <section>
+            <h2>Greeting</h2>
+            <h1>환영합니다</h1>
+            <p>안녕하세요.<br>더 나은 일상을 연구하고 제안하는 <strong>Better Life Lab</strong>입니다.</p>
+            <p>우리는 일상 속에서 발견하는 작은 영감들이 모여 삶의 큰 변화를 만든다고 믿습니다. 진심을 담은 가치를 전해드리겠습니다.</p>
+        </section>
+
+        <!-- 3. 핵심 가치 -->
+        <section>
+            <h2>Core Values</h2>
+            <h1>우리의 방향성</h1>
+            
+            <div class="card-box">
+                <h3>01. 진정성 있는 접근</h3>
+                <p>늘 사용자 관점에서 고민하고 오래도록 신뢰할 수 있는 결과물을 만듭니다.</p>
+            </div>
+            
+            <div class="card-box">
+                <h3>02. 따뜻한 연결</h3>
+                <p>사람과 사람, 브랜드와 고객을 감성적으로 잇는 경험을 선사합니다.</p>
+            </div>
+        </section>
+
+        <!-- 4. 오시는 길 및 연락처 -->
+        <section>
+            <h2>Contact</h2>
+            <h1>함께 이야기해요</h1>
+            <p>궁금하신 점이나 협업 제안은 언제든 환영합니다.</p>
+            <a href="mailto:contact@betterlifelab.com" class="btn">이메일 문의하기</a>
+        </section>
+
+        <!-- 푸터 -->
+        <footer>
+            &copy; 2026 Better Life Lab. All rights reserved.
+        </footer>
+    </div>
+
+</body>
+</html>
