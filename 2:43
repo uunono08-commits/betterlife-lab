@@ -17,45 +17,54 @@
             position: relative; 
         }
 
-        /* --- 메인 시안 스타일 구현 --- */
+        /* --- 메인 시안 스타일 구현 (상단 배치 수정) --- */
         .main-hero {
-            padding: 40px 24px 50px 24px;
+            padding: 30px 24px 50px 24px;
             background: #ffffff;
             position: relative;
             overflow: hidden;
             border-bottom: 8px solid #f8f9fa;
         }
 
-        /* 상단 로고 영역 */
-        .hero-top {
+        /* 최상단 로고 및 슬로건 정렬 영역 */
+        .hero-top-header {
             display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            margin-bottom: 30px;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
         }
+
+        .top-text-group {
+            flex: 1;
+        }
+
+        /* 우측 상단 로고 박스 */
         .logo-box {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            text-decoration: none;
+            flex-shrink: 0;
+            margin-left: 10px;
         }
         .logo-box img {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             object-fit: contain;
         }
         .logo-box span {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: #111;
             letter-spacing: -0.5px;
         }
 
-        /* 텍스트 영역 */
+        /* 상단으로 이동한 슬로건 및 타이틀 */
         .hero-subtitle-top {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #555;
             font-weight: 400;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .hero-title {
@@ -79,24 +88,29 @@
             font-weight: 800;
         }
 
-        /* 카테고리 구분선 태그 (식약처 인허가 | 화장품 ...) */
+        /* 카테고리 구분선 태그 */
         .categories {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
             gap: 8px 0;
             font-size: 0.95rem;
-            color: #333;
-            font-weight: 500;
-            margin-bottom: 45px;
+            margin-bottom: 40px;
         }
-        .categories span {
+        .categories a {
             padding: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
         }
-        .categories span:first-child {
+        .categories a:hover {
+            color: #003366;
+        }
+        .categories a:first-child {
             padding-left: 0;
         }
-        .categories span:not(:last-child) {
+        .categories a:not(:last-child) {
             border-right: 1px solid #ccc;
         }
 
@@ -117,7 +131,7 @@
         .blue-circle-bg {
             width: 100%;
             aspect-ratio: 1;
-            background-color: #0000a0; /* 시안과 같은 진한 파란색 원 */
+            background-color: #0000a0; /* 진한 파란색 원 */
             border-radius: 50%;
             position: absolute;
             bottom: -10px;
@@ -147,7 +161,7 @@
             display: block;
             width: 100%;
             padding: 14px 10px;
-            background-color: #ffcc00; /* 시안의 산뜻한 노란색 */
+            background-color: #ffcc00; /* 산뜻한 노란색 */
             color: #111;
             text-align: center;
             font-size: 1rem;
@@ -155,14 +169,25 @@
             text-decoration: none;
             border-radius: 24px;
             box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
-            transition: transform 0.1s;
+            transition: transform 0.1s, background-color 0.2s;
         }
         .cta-btn:active {
             transform: scale(0.96);
+            background-color: #e6b800;
         }
 
-        /* --- 이하 일반 섹션 스타일 (원하시는 대로 아래에 계속 추가 가능) --- */
-        section-common { padding: 40px 24px; border-bottom: 1px solid #eee; }
+        /* 컨텐츠 섹션 예시 스타일 */
+        .section-block {
+            padding: 50px 24px;
+            border-bottom: 1px solid #eee;
+        }
+        .section-block h2 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #111;
+        }
+
+        /* 푸터 */
         footer { padding: 30px 24px; text-align: center; font-size: 0.85rem; color: #888; background: #fafafa; }
     </style>
 </head>
@@ -170,38 +195,39 @@
 
     <div class="mobile-container">
         
-        <!-- 메인 오프닝 화면 (시안 반영 완료) -->
+        <!-- 메인 오프닝 화면 -->
         <header class="main-hero">
-            <!-- 우측 상단 로고 -->
-            <div class="hero-top">
-                <div class="logo-box">
-                    <!-- 로고 이미지 주소는 필요시 변경 가능합니다 -->
+            
+            <!-- 최상단 헤더 (슬로건/회사명 + 우측 로고 배치) -->
+            <div class="hero-top-header">
+                <div class="top-text-group">
+                    <div class="hero-subtitle-top">식품의 안전과 기업의 성장을 함께하는</div>
+                    <h1 class="hero-title">더나은생활연구소</h1>
+                </div>
+                <a href="#" class="logo-box">
                     <img src="https://i.imgur.com/8Q8Q8Q8.png" alt="로고" onerror="this.style.display='none'">
                     <span>더나은생활연구소</span>
-                </div>
+                </a>
             </div>
 
-            <!-- 메인 카피 텍스트 -->
-            <div class="hero-subtitle-top">식품의 안전과 기업의 성장을 함께하는</div>
-            <h1 class="hero-title">더나은생활연구소</h1>
+            <!-- ONE-STOP 컨설팅 강조 문구 -->
             <div class="hero-subtitle-bottom">
                 식약처 인허가부터 사후관리까지<br>
                 <span class="highlight">ONE-STOP 컨설팅</span>
             </div>
 
-            <!-- 카테고리 태그 텍스트 -->
+            <!-- 카테고리 태그 (링크 이동 가능) -->
             <div class="categories">
-                <span>식약처 인허가</span>
-                <span>화장품</span>
-                <span>HACCP</span>
-                <span>의약외품</span>
+                <a href="#licensing">식약처 인허가</a>
+                <a href="#cosmetics">화장품</a>
+                <a href="#haccp">HACCP</a>
+                <a href="#quasi-drug">의약외품</a>
             </div>
 
-            <!-- 일러스트 및 노란색 버튼 영역 -->
+            <!-- 일러스트 및 노란색 링크 버튼 영역 -->
             <div class="hero-bottom-content">
                 <div class="illustration-wrapper">
                     <div class="blue-circle-bg"></div>
-                    <!-- 전문가 일러스트 이미지 (시안 캐릭터) -->
                     <img src="https://i.imgur.com/qM7i52C.png" alt="전문가 팀 일러스트" class="illustration-img">
                 </div>
                 
@@ -212,10 +238,20 @@
             </div>
         </header>
 
-        <!-- 아래부터는 기존 회사소개 내용이 이어집니다 -->
-        <section style="padding: 40px 24px; text-align: center; border-bottom: 1px solid #eee;">
-            <h2 style="font-size: 1.1rem; color: #333; margin-bottom: 10px;">회사 소개</h2>
-            <p style="font-size: 0.95rem; color: #666;">신뢰할 수 있는 파트너, 더나은생활연구소의 상세 컨설팅 내용을 확인해 보세요.</p>
+        <!-- 하단 섹션들 -->
+        <section id="portfolio" class="section-block">
+            <h2>🏆 업적 및 포트폴리오</h2>
+            <p>여기에 회사의 주요 실적과 성공 사례가 들어갑니다.</p>
+        </section>
+
+        <section id="licensing" class="section-block">
+            <h2>📝 식약처 인허가 안내</h2>
+            <p>식약처 인허가 관련 상세 설명 내용입니다.</p>
+        </section>
+
+        <section id="contact" class="section-block">
+            <h2>📞 상담 신청</h2>
+            <p>문의하실 내용을 남겨주시면 빠르게 연락드리겠습니다.</p>
         </section>
 
         <!-- 푸터 -->
