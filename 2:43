@@ -2,263 +2,81 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>더나은생활연구소 - 모바일 회사소개서</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Better Life Lab - 회사소개서</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; -webkit-font-smoothing: antialiased; }
-        body { background-color: #f4f6f9; color: #333; line-height: 1.5; display: flex; justify-content: center; overflow-x: hidden; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; }
+        body { background-color: #f9f9f9; color: #333; line-height: 1.6; display: flex; justify-content: center; }
+        .mobile-container { width: 100%; max-width: 480px; background: #ffffff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
         
-        .mobile-container { 
-            width: 100%; 
-            max-width: 480px; 
-            background: #ffffff; 
-            min-height: 100vh; 
-            box-shadow: 0 0 20px rgba(0,0,0,0.05); 
-            position: relative; 
-        }
+        /* 섹션 공통 스타일 */
+        section { padding: 50px 24px; text-align: center; border-bottom: 1px solid #f0f0f0; }
+        h2 { font-size: 1.2rem; color: #888; margin-bottom: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
+        h1 { font-size: 1.8rem; color: #222; margin-bottom: 20px; font-weight: 700; }
+        p { font-size: 1rem; color: #555; margin-bottom: 15px; }
 
-        /* --- 메인 시안 스타일 구현 (상단 배치 수정) --- */
-        .main-hero {
-            padding: 30px 24px 50px 24px;
-            background: #ffffff;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 8px solid #f8f9fa;
-        }
+        /* 히스토리/가치 카드 */
+        .card-box { background: #fdfdfd; border: 1px solid #eaeaea; border-radius: 12px; padding: 25px 20px; margin-top: 20px; text-align: left; }
+        .card-box h3 { font-size: 1.1rem; color: #222; margin-bottom: 8px; }
+        
+        /* 히어로 섹션 */
+        .hero { background: linear-gradient(135deg, #f6f8fa 0%, #e9edf0 100%); padding: 80px 24px; }
+        .hero h1 { font-size: 2rem; margin-bottom: 15px; color: #111; }
 
-        /* 최상단 로고 및 슬로건 정렬 영역 */
-        .hero-top-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .top-text-group {
-            flex: 1;
-        }
-
-        /* 우측 상단 로고 박스 */
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            flex-shrink: 0;
-            margin-left: 10px;
-        }
-        .logo-box img {
-            width: 32px;
-            height: 32px;
-            object-fit: contain;
-        }
-        .logo-box span {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #111;
-            letter-spacing: -0.5px;
-        }
-
-        /* 상단으로 이동한 슬로건 및 타이틀 */
-        .hero-subtitle-top {
-            font-size: 0.9rem;
-            color: #555;
-            font-weight: 400;
-            margin-bottom: 6px;
-        }
-
-        .hero-title {
-            font-size: 2.1rem;
-            font-weight: 800;
-            color: #111;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle-bottom {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #222;
-            margin-bottom: 24px;
-            line-height: 1.4;
-        }
-        .hero-subtitle-bottom .highlight {
-            color: #003366; /* ONE-STOP 컨설팅 포인트 컬러 */
-            font-weight: 800;
-        }
-
-        /* 카테고리 구분선 태그 */
-        .categories {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px 0;
-            font-size: 0.95rem;
-            margin-bottom: 40px;
-        }
-        .categories a {
-            padding: 0 10px;
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .categories a:hover {
-            color: #003366;
-        }
-        .categories a:first-child {
-            padding-left: 0;
-        }
-        .categories a:not(:last-child) {
-            border-right: 1px solid #ccc;
-        }
-
-        /* 하단 일러스트 및 버튼 영역 레이아웃 */
-        .hero-bottom-content {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 15px;
-            position: relative;
-        }
-
-        /* 파란 원형 배경 일러스트 */
-        .illustration-wrapper {
-            width: 62%;
-            position: relative;
-        }
-        .blue-circle-bg {
-            width: 100%;
-            aspect-ratio: 1;
-            background-color: #0000a0; /* 진한 파란색 원 */
-            border-radius: 50%;
-            position: absolute;
-            bottom: -10px;
-            left: -15px;
-            z-index: 1;
-        }
-        .illustration-img {
-            width: 115%;
-            max-width: none;
-            position: relative;
-            z-index: 2;
-            display: block;
-            object-fit: contain;
-        }
-
-        /* 노란색 버튼 그룹 */
-        .action-buttons {
-            width: 38%;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 3;
-            padding-bottom: 10px;
-        }
-
-        .cta-btn {
-            display: block;
-            width: 100%;
-            padding: 14px 10px;
-            background-color: #ffcc00; /* 산뜻한 노란색 */
-            color: #111;
-            text-align: center;
-            font-size: 1rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 24px;
-            box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
-            transition: transform 0.1s, background-color 0.2s;
-        }
-        .cta-btn:active {
-            transform: scale(0.96);
-            background-color: #e6b800;
-        }
-
-        /* 컨텐츠 섹션 예시 스타일 */
-        .section-block {
-            padding: 50px 24px;
-            border-bottom: 1px solid #eee;
-        }
-        .section-block h2 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #111;
-        }
+        /* 버튼 스타일 */
+        .btn { display: block; width: 100%; padding: 14px; background: #222; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; margin-top: 20px; text-align: center; }
+        .btn:active { background: #444; }
 
         /* 푸터 */
-        footer { padding: 30px 24px; text-align: center; font-size: 0.85rem; color: #888; background: #fafafa; }
+        footer { padding: 30px 24px; text-align: center; font-size: 0.85rem; color: #999; background: #f4f4f4; }
     </style>
 </head>
 <body>
 
     <div class="mobile-container">
-        
-        <!-- 메인 오프닝 화면 -->
-        <header class="main-hero">
+        <!-- 1. 메인 오프닝 -->
+        <section class="hero">
+            <h2>Introduction</h2>
+            <h1>Better Life Lab</h1>
+            <p>일상에 따뜻함과 가치를 더하는 공간,<br>우리의 이야기를 소개합니다.</p>
+        </section>
+
+        <!-- 2. 인사말 -->
+        <section>
+            <h2>Greeting</h2>
+            <h1>환영합니다</h1>
+            <p>안녕하세요.<br>더 나은 일상을 연구하고 제안하는 <strong>Better Life Lab</strong>입니다.</p>
+            <p>우리는 일상 속에서 발견하는 작은 영감들이 모여 삶의 큰 변화를 만든다고 믿습니다. 진심을 담은 가치를 전해드리겠습니다.</p>
+        </section>
+
+        <!-- 3. 핵심 가치 -->
+        <section>
+            <h2>Core Values</h2>
+            <h1>우리의 방향성</h1>
             
-            <!-- 최상단 헤더 (슬로건/회사명 + 우측 로고 배치) -->
-            <div class="hero-top-header">
-                <div class="top-text-group">
-                    <div class="hero-subtitle-top">식품의 안전과 기업의 성장을 함께하는</div>
-                    <h1 class="hero-title">더나은생활연구소</h1>
-                </div>
-                <a href="#" class="logo-box">
-                    <img src="https://i.imgur.com/8Q8Q8Q8.png" alt="로고" onerror="this.style.display='none'">
-                    <span>더나은생활연구소</span>
-                </a>
+            <div class="card-box">
+                <h3>01. 진정성 있는 접근</h3>
+                <p>늘 사용자 관점에서 고민하고 오래도록 신뢰할 수 있는 결과물을 만듭니다.</p>
             </div>
-
-            <!-- ONE-STOP 컨설팅 강조 문구 -->
-            <div class="hero-subtitle-bottom">
-                식약처 인허가부터 사후관리까지<br>
-                <span class="highlight">ONE-STOP 컨설팅</span>
+            
+            <div class="card-box">
+                <h3>02. 따뜻한 연결</h3>
+                <p>사람과 사람, 브랜드와 고객을 감성적으로 잇는 경험을 선사합니다.</p>
             </div>
-
-            <!-- 카테고리 태그 (링크 이동 가능) -->
-            <div class="categories">
-                <a href="#licensing">식약처 인허가</a>
-                <a href="#cosmetics">화장품</a>
-                <a href="#haccp">HACCP</a>
-                <a href="#quasi-drug">의약외품</a>
-            </div>
-
-            <!-- 일러스트 및 노란색 링크 버튼 영역 -->
-            <div class="hero-bottom-content">
-                <div class="illustration-wrapper">
-                    <div class="blue-circle-bg"></div>
-                    <img src="https://i.imgur.com/qM7i52C.png" alt="전문가 팀 일러스트" class="illustration-img">
-                </div>
-                
-                <div class="action-buttons">
-                    <a href="#portfolio" class="cta-btn">업적 보기</a>
-                    <a href="#contact" class="cta-btn">상담 신청</a>
-                </div>
-            </div>
-        </header>
-
-        <!-- 하단 섹션들 -->
-        <section id="portfolio" class="section-block">
-            <h2>🏆 업적 및 포트폴리오</h2>
-            <p>여기에 회사의 주요 실적과 성공 사례가 들어갑니다.</p>
         </section>
 
-        <section id="licensing" class="section-block">
-            <h2>📝 식약처 인허가 안내</h2>
-            <p>식약처 인허가 관련 상세 설명 내용입니다.</p>
-        </section>
-
-        <section id="contact" class="section-block">
-            <h2>📞 상담 신청</h2>
-            <p>문의하실 내용을 남겨주시면 빠르게 연락드리겠습니다.</p>
+        <!-- 4. 오시는 길 및 연락처 -->
+        <section>
+            <h2>Contact</h2>
+            <h1>함께 이야기해요</h1>
+            <p>궁금하신 점이나 협업 제안은 언제든 환영합니다.</p>
+            <a href="mailto:contact@betterlifelab.com" class="btn">이메일 문의하기</a>
         </section>
 
         <!-- 푸터 -->
         <footer>
-            &copy; 2026 더나은생활연구소. All rights reserved.
+            &copy; 2026 Better Life Lab. All rights reserved.
         </footer>
-
     </div>
 
 </body>
